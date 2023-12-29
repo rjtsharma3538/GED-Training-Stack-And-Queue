@@ -2,19 +2,21 @@ package com.example;
 
 public class Main {
     public static void main(String[] args) {
-        stack<Integer> st=new stack<Integer>();
-        st.push(89);
-        st.push(7);
-        st.push(823);
-        st.push(73);
+        Queue<Integer> q=new Queue<Integer>();
+        q.push(7);
+        q.push(71);
+        q.push(79);
+        q.push(5);
+        q.push(10);
 
-        st.display();
+        q.display();
 
-        st.pop();
-        st.pop();
+        q.pop();
+        q.pop();
+        q.pop();
 
-        st.display();
+        q.display();
 
-        System.out.println(st.peak());
+        System.out.println(q.peak());
     }
 }

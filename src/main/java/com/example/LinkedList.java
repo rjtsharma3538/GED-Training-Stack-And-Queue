@@ -1,5 +1,6 @@
 package com.example;
-import  java.util.*;
+
+import java.util.*;
 
 public class LinkedList<T extends Comparable<T>> {
     Node<T> head;
@@ -24,34 +25,28 @@ public class LinkedList<T extends Comparable<T>> {
         }
     }
 
-    public void inserInSorted(T key)
-    {
+    public void inserInSorted(T key) {
         Node<T> newNode = new Node<>(key);
-        if(head==null)
-            head=newNode;
-        
-        else if(key.compareTo(head.data)<0)
-        {
-            newNode.next=head;
-            head=newNode;
-        }
-        else 
-        {
-            Node<T> p=head,q=head.next;
-            while(q!=null)
-            {
-                if(key.compareTo(q.data)<0)
-                {
-                    p.next=newNode;
-                    newNode.next=q;
+        if (head == null)
+            head = newNode;
+
+        else if (key.compareTo(head.data) < 0) {
+            newNode.next = head;
+            head = newNode;
+        } else {
+            Node<T> p = head, q = head.next;
+            while (q != null) {
+                if (key.compareTo(q.data) < 0) {
+                    p.next = newNode;
+                    newNode.next = q;
                     break;
                 }
-                p=p.next;
-                q=q.next;
+                p = p.next;
+                q = q.next;
             }
 
-            if(q==null)
-                p.next=newNode;
+            if (q == null)
+                p.next = newNode;
         }
     }
 
@@ -64,25 +59,32 @@ public class LinkedList<T extends Comparable<T>> {
         System.out.println("null");
     }
 
-    public void addAtHead(T data)
-    {
+    public void addAtHead(T data) {
         Node<T> t = new Node<T>(data);
-        if(head==null)
-        {
-            head=t;
-        }
-        else 
-        {
-            t.next=head;
-            head=t;
+        if (head == null) {
+            head = t;
+        } else {
+            t.next = head;
+            head = t;
         }
     }
 
-    public void deleteHead()
-    {
-        if(head==null)
+    public void deleteHead() {
+        if (head == null)
             System.out.println("segmentstion fault");
-        head=head.next;
+        head = head.next;
+    }
+
+    public void addAtTail(T data) {
+        Node<T> t = new Node<T>(data);
+        if (head == null)
+            head = t;
+        else {
+            Node<T> tmp = head;
+            while (tmp.next != null)
+                tmp = tmp.next;
+            tmp.next = t;
+        }
     }
 
 }
